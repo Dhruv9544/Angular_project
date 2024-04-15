@@ -1,0 +1,98 @@
+
+<h1 class="text-center">Signup</h1>
+<form  class="mt-5" [formGroup]="myform" (ngSubmit)="Signup()">
+<div class="form-row">
+    <div class="form-group col-md-4 offset-md-4">
+        FirstName:<input type="text" class="form-control" formControlName="firstName"/>
+        <span class="error" *ngIf="!myform.get('firstName')?.valid && myform.get('firstName')?.touched">please Enter FirstName</span>
+    </div>
+
+    <div class="form-group col-md-4 offset-md-4">
+        LastName:<input type="text" class="form-control" formControlName="lastName"/>
+        <span class="error" *ngIf="!myform.get('lastName')?.valid && myform.get('lastName')?.touched">please Enter LastName</span>
+    </div>
+
+    
+<div class="form-group col-md-4 offset-md-4">
+    Email:<input type="email" class="form-control" formControlName="email"/>
+    <span class="error" *ngIf="!myform.get('email')?.valid && myform.get('email')?.touched && !myform.get('email')?.hasError('email')">
+        please Enter Email
+    </span>
+    <span class="error" *ngIf="myform.get('email')?.hasError('email')">
+        please Enter valid email
+    </span>
+</div>
+
+<div class="form-group col-md-4 offset-md-4">
+    Password:<input type="password" class="form-control" formControlName="password">
+    <span class="error" *ngIf="!myform.get('password')?.valid && myform.get('password')?.touched && !myform.get('password')?.hasError('minlength')">
+        please Enter Password
+    </span>
+        <span class="error" *ngIf="myform.get('password')?.hasError('minlength')">
+            password must have atleast 8 characters.
+        </span>
+
+</div>
+
+
+    
+<div class="form-group col-md-4 offset-md-4">
+    contactNum:<input type="text" class="form-control" formControlName="contactNum"/>
+    <span class="error" *ngIf="!myform.get('contactNum')?.valid && myform.get('contactNum')?.touched">please Enter contactnum</span>
+</div>
+
+
+<div class="form-group col-md-4 offset-md-4">
+    address:<input type="text" class="form-control" formControlName="address"/>
+    <span class="error" *ngIf="!myform.get('address')?.valid && myform.get('address')?.touched">please Enter Adress</span>
+</div>
+
+
+<div class="form-group col-md-4 offset-md-4">
+    state:<input type="text" class="form-control" formControlName="state"/>
+    <span class="error" *ngIf="!myform.get('state')?.valid && myform.get('state')?.touched">please Enter your state</span>
+</div>
+
+
+<div class="form-group col-md-4 offset-md-4">
+    city:<input type="text" class="form-control" formControlName="city"/>
+    <span class="error" *ngIf="!myform.get('city')?.valid && myform.get('city')?.touched">please Enter your city</span>
+</div>
+
+
+<div class="form-group col-md-4 offset-md-4">
+    pincode:<input type="text" class="form-control" formControlName="pincode"/>
+    <span class="error" *ngIf="!myform.get('pincode')?.valid && myform.get('pincode')?.touched">please Enter Pincode</span>
+</div>
+
+<!-- upload png or jpegfile -->
+<!-- <div class="form-group col-md-4 offset-md-4">
+    profileUrl:<input type="file" class="form-control" formControlName="profileUrl"/>
+</div> -->
+
+
+<div class="form-group col-md-4 offset-md-4">
+    <span>role:</span>
+    <input type="radio" id="User" name="role" formControlName="role" value="User"/>
+    <label class="ml-2" for="User">User</label>
+    <input type="radio" id="Admin" name="role" value="Admin" formControlName="role" />
+    <label class="ml-2" for="Admin">Admin</label>
+</div>
+
+
+
+<div class="form-group col-md-6 offset-md-4 mt-3">
+    <button class="btn btn-primary" type="submit">Signup</button>
+</div>
+
+</div>
+</form>
+
+
+<div class="form-group  col-md-6 offset-md-4 mt-2">
+
+    <span>Already have an Account?</span>
+    <a  routerLink="/login">login</a>
+
+</div>
+

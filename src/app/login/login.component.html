@@ -1,0 +1,43 @@
+
+<h1 class="text-center">Login</h1>
+<form  class="mt-5" [formGroup]="myform" (ngSubmit)="login()">
+
+
+    <div class="form-row">
+
+    <div class="form-group col-md-4 offset-md-4">
+        Email:<input type="email" class="form-control" formControlName="email"/>
+        <span class="error" *ngIf="!myform.get('email')?.valid && myform.get('email')?.touched">
+            please Enter Email
+            <span *ngIf="myform.get('email')?.hasError('email')">
+                please Enter valid email
+            </span>
+    
+        </span>
+    </div>
+
+
+    <div class="form-group col-md-4 offset-md-4">
+        Password:<input type="password" class="form-control" formControlName="password">
+        <span class="error" *ngIf="!myform.get('password')?.valid && myform.get('password')?.touched">
+            please Enter Password
+    
+            <span *ngIf="myform.get('password')?.hasError('minlength')">
+                password must have atleast 8 characters.
+            </span>
+    
+        </span>
+    </div>
+
+    <div class="form-group col-md-6 offset-md-4 mt-3">
+        <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+</div>
+
+<div class="form-group  col-md-6 offset-md-4 mt-2">
+
+    <span>Not having an account?</span>
+    <a  routerLink="/signup">signup</a>
+
+</div>
+</form>

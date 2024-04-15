@@ -1,0 +1,23 @@
+<app-admin></app-admin>
+
+<table *ngIf="Categories" class=" mt-5 table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">CategoryName</th>
+        <th  scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Category of Categories"> 
+        <td>{{Category._id}}</td>
+        <td>{{Category.CategoryName}}</td>
+        <td >
+          <button (click)="updateCategory(Category._id)" class="btn btn-primary btnspacing">Update</button>
+          <button (click)="deleteCategory(Category._id)" class="btn btn-danger">Delete</button>
+        </td>
+        
+
+      </tr>
+    </tbody>
+  </table>
